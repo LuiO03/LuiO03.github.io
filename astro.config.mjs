@@ -7,7 +7,7 @@ import icon from 'astro-icon';
 export default defineConfig({
   site: 'https://luio03.github.io/my_portfolio',
   // base: process.env.NODE_ENV === 'production'
-    // ? '/my_portfolio'
+    // ? '/my_portfolio '
     // : '/',
   integrations: [icon()],
 });
