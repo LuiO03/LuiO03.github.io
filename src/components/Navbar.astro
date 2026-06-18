@@ -1,15 +1,32 @@
 ---
   import '../styles/navbar.css';
+  import { Icon } from "astro-icon/components";
+  const currentPath = Astro.url.pathname;
 ---
 <nav class="navbar">
   <div class="navbar-content"><!-- div para implementar ancho maximo -->
     <article class="logo">LuiOsorio</article>
     <ul class="nav-links">
-      <li><a href="/">Inicio</a></li>
-      <li><a href="/about">Sobre mí</a></li>
-      <li><a href="/projects">Proyectos</a></li>
-      <li><a href="/contact">Contacto</a></li>
-      <li><a href="/probar404">Probar 404</a></li>
+      <li>
+        <Icon class="nav-icon" name="tabler:home" />
+        <a href="/" class={currentPath === '/' ? 'active' : 'disabled'}>Inicio</a>
+      </li>
+      <li>
+        <Icon class="nav-icon" name="tabler:user" />
+        <a href="/about" class={currentPath === '/about' ? 'active' : 'disabled'}>Sobre mí</a>
+      </li>
+      <li>
+        <Icon class="nav-icon" name="tabler:briefcase" />
+        <a href="/projects" class={currentPath === '/projects' ? 'active' : 'disabled'}>Proyectos</a>
+      </li>
+      <li>
+        <Icon class="nav-icon" name="tabler:mail" />
+        <a href="/contact" class={currentPath === '/contact' ? 'active' : 'disabled'}>Contacto</a>
+      </li>
+      <li>
+        <Icon class="nav-icon" name="tabler:alert-circle" />
+        <a href="/probar404" class={currentPath === '/probar404' ? 'active' : 'disabled'}>Probar 404</a>
+      </li>
     </ul>
   </div>
 </nav>

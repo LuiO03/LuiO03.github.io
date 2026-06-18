@@ -2,8 +2,10 @@
 	import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Inicio">
-	<h1>Bienvenido a mi portafolio</h1>
-	<p>Explora mis proyectos y conoce más sobre mí.</p>
+<MainLayout title="Inicio" bannerImage="../../public/images/banner-home.jpg">
+	<Fragment slot="banner">
+		<h1>Bienvenido a mi portafolio</h1>
+		<p>Explora mis proyectos y conoce más sobre mí.</p>
+	</Fragment>
 	
 </MainLayout>

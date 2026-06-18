@@ -43,6 +43,30 @@
     border 0.3s ease;
 }
 
-.navbar-content li a:hover {
-  border-bottom: 3px solid white;
+.navbar-content li .active {
+  border-bottom: 2px solid white;
+  pointer-events: none;
+  cursor: default;
+}
+
+.navbar-content li .disabled:hover {
+  border-bottom: 2px solid white;
+}
+
+/* ==  ==*/
+
+.header-banner{
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  text-align: center;
+}
+
+.header-banner h1, .header-banner p {
+  color: white;
 }

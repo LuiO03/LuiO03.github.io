@@ -1,6 +1,7 @@
 :root {
   --color-accent: #d11e4b;
   --accent-dark: #000d8a;
+  --background-body: #f0f4f8;
   --black: 15, 18, 25;
   --gray: 96, 115, 159;
   --gray-light: 229, 233, 240;
@@ -12,6 +13,8 @@
 
   --max-width: 1024px;
 }
+
+
 @font-face {
   font-family: "Atkinson";
   src: url("/fonts/atkinson-regular.woff") format("woff");
@@ -31,9 +34,8 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  background: linear-gradient(var(--gray-gradient)) no-repeat;
-  background-color: green;
-  background-size: 100% 600px;
+  background: var(--background-body);
+  /* background-color: green; */
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: rgb(var(--gray-dark));

@@ -1,39 +1,54 @@
 ---
-    import Navbar from "../components/Navbar.astro";
+import { ClientRouter } from "astro:transitions";
 
-    //const {title} = Astro.props;
-    interface Props {
-        title: string;
-        isActive?: boolean;
-    }
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
-    const { title, isActive } = Astro.props;
+//const {title} = Astro.props;
+interface Props {
+  title: string;
+  //isActive?: boolean;
+  bannerImage?: string;
+}
+const hasBanner = Astro.slots.has("banner");
+const { title, bannerImage } = Astro.props;
 
-
-    import '../styles/global.css';
+import "../styles/global.css";
 ---
 
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-        <header>
-            <Navbar />
-
-        </header>
-		<main>
-            <slot />
-        </main>
-        <footer>
-            <p>&copy; {new Date().getFullYear()} Mi Portafolio. Todos los derechos reservados.</p>
-        </footer>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ClientRouter />
+    <!-- Habilita el enrutamiento del lado del cliente para transiciones suaves -->
+  </head>
+  <body>
+    <header>
+      <!--  Barra de navegación -->
+      <Navbar />
+      
+      <!--  Banner o sección de encabezado -->
+      {
+        hasBanner && (
+          <div
+            class="header-banner"
+            style={`background-image: url(${bannerImage});`}
+          >
+            <slot name="banner" />
+          </div>
+        )
+      }
+    </header>
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
 <!-- 
 <style is:global>
