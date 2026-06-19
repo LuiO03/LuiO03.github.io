@@ -1,5 +1,6 @@
 ---
 import Section from "../components/Section.astro";
+import { Icon } from "astro-icon/components";
 import MainLayout from "../layouts/MainLayout.astro";
 
 import "../styles/home.css";
@@ -11,9 +12,21 @@ import "../styles/home.css";
 		<p>Explora mis proyectos y conoce más sobre mí.</p>
 	</Fragment>
 
+	<Section title="Sobre mí" description="Soy un desarrollador apasionado por la tecnología y el desarrollo de software.">
+		<p>
+			Soy un desarrollador apasionado por la tecnología y el desarrollo de software. Con experiencia en diversas tecnologías, me encanta crear soluciones innovadoras y eficientes. Mi objetivo es seguir creciendo profesionalmente y contribuir a proyectos que marquen la diferencia.
+		</p>
+		<p>
+			Desde pequeño, siempre he estado fascinado por cómo funcionan las cosas detrás de escena, lo que me llevó a aprender programación y desarrollo web. A lo largo de mi carrera, he trabajado en una variedad de proyectos, desde aplicaciones web hasta sistemas más complejos, siempre buscando mejorar mis habilidades y aprender nuevas tecnologías.
+		</p>
+		<p>
+			Mi enfoque se centra en la calidad del código, la usabilidad y la experiencia del usuario. Me esfuerzo por crear productos que no solo funcionen bien, sino que también sean intuitivos y agradables de usar. Estoy emocionado por las oportunidades futuras y los desafíos que vendrán en el mundo del desarrollo de software.
+		</p>
+	</Section>
+
 	<Section
 		title="Mis Proyectos"
-		description="Aquí puedes encontrar algunos de los proyectos en los que he trabajado recientemente. Desde aplicaciones web hasta proyectos de código abierto, cada uno refleja mi pasión por la tecnología y el desarrollo."
+		description="Aquí puedes encontrar algunos de los proyectos en los que he trabajado recientemente."
 	>
 		<ul class="project-list">
 			<li class="project-item">
@@ -24,7 +37,7 @@ import "../styles/home.css";
 						<span class="project-tag php">PHP</span>
 					</div>
 				</div>
-				<a href="/projects/project1">POS ModaMarket</a>
+				<a href="/projects/modamarket">POS ModaMarket</a>
 			</li>
 			<li class="project-item">
 				<div class="project-image">
@@ -46,6 +59,9 @@ import "../styles/home.css";
 				<a href="/projects/project3">Forex Expeditions</a>
 			</li>
 		</ul>
-		<a href="/projects" class="boton boton-orange">Ver todos los proyectos</a>
+		<a href="/projects" class="button bg-accent">
+			<Icon name="tabler:eye-filled" class="button-icon" />
+			Ver todos los proyectos
+		</a>
 	</Section>
 </MainLayout>

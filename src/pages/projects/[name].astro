@@ -1,0 +1,27 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  return projects.map((project) => ({
+    params: {
+      name: project.id,
+    },
+    props: {
+      project,
+    },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<MainLayout title={project.data.title}>
+  <h1>{project.data.title}</h1>
+  <p>{project.data.description}</p>
+  <div class="project-carrousel">
+    <img src={project.data.image} alt={project.data.title} />
+  </div>
+</MainLayout>

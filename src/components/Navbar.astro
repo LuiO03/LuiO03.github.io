@@ -4,53 +4,59 @@ import { Icon } from "astro-icon/components";
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="navbar">
-	<div class="navbar-content">
-		<!-- div para implementar ancho maximo -->
+<div class="navbar-content">
+	<!-- div para implementar ancho maximo -->
+	<div class="nav-header">
+    <img src="/images/foto.png" alt="Logo">
 		<a class="logo" href="/">LuiOsorio</a>
-		<ul class="nav-links">
-			<li>
-				<a href="/" class={currentPath === "/" ? "active" : "disabled"}>
-					<Icon class="nav-icon" name="tabler:home" />
-					Inicio
-				</a>
-			</li>
-			<li>
-				<a href="/about" class={currentPath === "/about" ? "active" : "disabled"}>
-					<Icon class="nav-icon" name="tabler:user" />
-					Sobre mí
-				</a>
-			</li>
-			<li>
-				<a href="/projects" class={currentPath === "/projects" ? "active" : "disabled"}>
-					<Icon class="nav-icon" name="tabler:briefcase" />
-					Proyectos
-				</a>
-			</li>
-			<li>
-				<a href="/contact" class={currentPath === "/contact" ? "active" : "disabled"}>
-					<Icon class="nav-icon" name="tabler:mail" />
-					Contacto
-				</a>
-			</li>
-			<li>
-				<a href="/probar404" class={currentPath === "/probar404" ? "active" : "disabled"}>
-					<Icon class="nav-icon" name="tabler:alert-circle" />
-					Probar 404
-				</a>
-			</li>
-		</ul>
-		<div class="nav-overlay" aria-hidden="true"></div>
-		<article class="nav-actions">
-			<Icon id="theme-toggle" class="nav-icon-theme" name="tabler:moon-filled" />
-			<button id="userSidebarToggle" class="nav-icon-hamburger" aria-label="Abrir menú de usuario">
-				<span class="hamburger-line"></span>
-				<span class="hamburger-line"></span>
-				<span class="hamburger-line"></span>
-			</button>
-		</article>
 	</div>
-</nav>
+  <hr class="nav-divider" />
+	<ul class="nav-links">
+		<li>
+			<a href="/" class={currentPath === "/" ? "active" : "disabled"}>
+				<Icon class="nav-icon" name="tabler:home" />
+				Inicio
+			</a>
+		</li>
+		<li>
+			<a href="/about" class={currentPath === "/about" ? "active" : "disabled"}>
+				<Icon class="nav-icon" name="tabler:user" />
+				Sobre mí
+			</a>
+		</li>
+		<li>
+			<a href="/projects" class={currentPath === "/projects" ? "active" : "disabled"}>
+				<Icon class="nav-icon" name="tabler:briefcase" />
+				Proyectos
+			</a>
+		</li>
+		<li>
+			<a href="/contact" class={currentPath === "/contact" ? "active" : "disabled"}>
+				<Icon class="nav-icon" name="tabler:mail" />
+				Contacto
+			</a>
+		</li>
+		<li>
+			<a href="/probar404" class={currentPath === "/probar404" ? "active" : "disabled"}>
+				<Icon class="nav-icon" name="tabler:alert-circle" />
+				Probar 404
+			</a>
+		</li>
+	</ul>
+	<div class="nav-overlay" aria-hidden="true"></div>
+  <hr class="nav-divider" />
+	<article class="nav-actions">
+    <div class="nav-theme-toggle" aria-label="Cambiar tema" id="theme-toggle">
+      <Icon class="nav-icon-theme" name="tabler:moon-filled" />
+      Cambiar tema
+    </div>
+		<button id="userSidebarToggle" class="nav-icon-hamburger" aria-label="Abrir menú de usuario">
+			<span class="hamburger-line"></span>
+			<span class="hamburger-line"></span>
+			<span class="hamburger-line"></span>
+		</button>
+	</article>
+</div>
 
 <script>
 	function initThemeToggle() {
@@ -70,12 +76,7 @@ const currentPath = Astro.url.pathname;
 		const navLinks = document.querySelector(".nav-links");
 		const navOverlay = document.querySelector(".nav-overlay");
 
-		if (
-			!(toggleBtn instanceof HTMLButtonElement) ||
-			!(navLinks instanceof HTMLElement) ||
-			!(navOverlay instanceof HTMLElement)
-		)
-			return;
+		if (!(toggleBtn instanceof HTMLButtonElement) || !(navLinks instanceof HTMLElement) || !(navOverlay instanceof HTMLElement)) return;
 
 		const isMobile = () => window.matchMedia("(max-width: 768px)").matches;
 		const setExpanded = (isExpanded: boolean) => {

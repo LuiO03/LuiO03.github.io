@@ -10,9 +10,9 @@
 .section-header{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.5rem;
+    align-items: start;
+    text-align: start;
+    gap: 0rem;
 }
 
 .section-content{
@@ -26,6 +26,10 @@
     color: var(--color-accent);
 }
 
+.section .button{
+    color: white;
+}
+
 .project-list{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -34,34 +38,48 @@
 
 .project-item {
     overflow: hidden;
+    background-color: var(--color-card-bg);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-card);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project-item:hover{
+    box-shadow: var(--box-shadow-card);
+    transform: translateY(-5px);
 }
 
 .project-image{
     position: relative;
     width: 100%;
-    
-}
-
-.project-image img{
-    
+    height: 100%;
 }
 
 .project-item a{
     text-decoration: none;
     color: var(--color-text);
     font-weight: 700;
+    padding: 0.3rem 1rem;
 }
 
 .project-tags{
     position: absolute;
-    top: 20px;
-    right: 20px;
+    bottom: 0px;
+    right: 0px;
     width: 100%;
     color: #fff;
     display: flex;
     justify-content: end;
     align-items: center;
     gap: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: height 0.3s ease;
+    height: 35px;
+}
+
+.project-item:hover .project-tags{
+    height: 100%;
 }
 
 .project-tag{
