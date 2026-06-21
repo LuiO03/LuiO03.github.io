@@ -2,41 +2,12 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Section from '../components/Section.astro';
 import { Icon } from 'astro-icon/components';
+import ProjectList from '../components/ProjectList.astro';
 ---
 
 <MainLayout title="Proyectos">
     <Section title="Observa todos mis proyectos" description="Aquí encontrarás una selección de mis trabajos más destacados. Desde aplicaciones web hasta proyectos de código abierto, cada uno refleja mi pasión por la tecnología y el desarrollo.">
-		<ul class="project-list">
-			<li class="project-item">
-				<div class="project-image">
-					<img src="/images/proyectos/modamarket/proyecto1.jpg" alt="Proyecto 1" transition:name="modamarket" />
-					<div class="project-tags">
-						<span class="project-tag js">JavaScript</span>
-						<span class="project-tag php">PHP</span>
-					</div>
-				</div>
-				<a href="/projects/modamarket">POS ModaMarket</a>
-			</li>
-			<li class="project-item">
-				<div class="project-image">
-					<img src="/images/proyectos/proyecto2.jpg" alt="Proyecto 2" transition:name="project2" />
-					<div class="project-tags">
-						<span class="project-tag java">Java</span>
-					</div>
-				</div>
-				<a href="/projects/project2">POS ModaMarket</a>
-			</li>
-			<li class="project-item">
-				<div class="project-image">
-					<img src="/images/proyectos/proyecto3.jpg" alt="Proyecto 3" transition:name="project3" />
-					<div class="project-tags">
-						<span class="project-tag html">HTML</span>
-						<span class="project-tag css">CSS</span>
-					</div>
-				</div>
-				<a href="/projects/project3">Forex Expeditions</a>
-			</li>
-		</ul>
+		<ProjectList />
 		<div>
 			<a href="/" class="button bg-success">
 				<Icon name="tabler:home" class="button-icon" />

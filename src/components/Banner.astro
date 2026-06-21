@@ -3,8 +3,12 @@ interface Props {
 	bannerImage?: string;
 }
 const { bannerImage } = Astro.props;
+
+import "../styles/components/banner.css";
 ---
 
 <div class="header-banner" style={`background-image: url(${bannerImage});`}>
-	<slot />
+	<div class="header-overlay">
+		<slot />
+	</div>
 </div>

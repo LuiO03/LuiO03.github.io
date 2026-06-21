@@ -1,28 +1,116 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
-
+import Banner from "../../components/Banner.astro";
+import Section from "../../components/Section.astro";
+import { Icon } from "astro-icon/components";
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
+	const projects = await getCollection("projects");
 
-  return projects.map((project) => ({
-    params: {
-      name: project.id,
-    },
-    props: {
-      project,
-      name: project.id,
-    },
-  }));
+	return projects.map((project) => ({
+		params: {
+			name: project.id,
+		},
+		props: {
+			project,
+			name: project.id,
+		},
+	}));
 }
 
 const { project, name } = Astro.props;
+
+const images = project.data.gallery ?? [];
+
+import "../../styles/name-proyecto.css";
 ---
 
 <MainLayout title={project.data.title}>
-  <h1>{project.data.title}</h1>
-  <p>{project.data.description}</p>
-  <div class="project-carrousel">
-    <img src={project.data.image} alt={project.data.title} transition:name={name} />
-  </div>
+	<Fragment slot="header">
+		<Banner bannerImage="/images/banner-home.jpg" transition:name={name}>
+			<div class="banner-content">
+				<h1 transition:name={`${project.id}-title`}>
+					{project.data.title}
+				</h1>
+				<p>{project.data.description}</p>
+				<div class="banner-buttons">
+					<a href={project.data.github} class="button bg-dark" target="_blank" rel="noopener noreferrer">
+						<Icon name="tabler:brand-github-filled" class="button-icon" />
+						Ver Repositorio
+					</a>
+					<a href={project.data.demo} class="button bg-orange" target="_blank" rel="noopener noreferrer">
+						<Icon name="tabler:external-link" class="button-icon" />
+						Ver Demo
+					</a>
+				</div>
+			</div>
+		</Banner>
+	</Fragment>
+	<Section title="" description="" is_background_alt={true}>
+		<div class="project-section-content">
+			<div class="project-section-info">
+				<h1>Información</h1>
+				<p>{project.data.description}</p>
+			</div>
+			<img src={project.data.image} alt={project.data.title} transition:name={name} />
+		</div>
+	</Section>
+	<Section title={`Detalles de ${project.data.title}`} description="">
+		<p>{project.data.content}</p>
+	</Section>
+	<Section title="Galería" description="Aquí puedes ver algunas capturas de pantalla del proyecto." is_background_alt={true}>
+		<div class="swiper">
+			<div class="swiper-wrapper">
+				{
+					images.map((image) => (
+						<div class="swiper-slide">
+							<img src={image} alt={`Captura de ${project.data.title}`} />
+						</div>
+					))
+				}
+			</div>
+	
+			<div class="swiper-pagination"></div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+	</Section>
+	
+	<a href="/projects" class="button bg-warning">
+		<Icon name="tabler:arrow-left" class="button-icon" />
+		Volver a Proyectos
+	</a>
+	
+	<script>
+		import Swiper from "swiper";
+		import { Navigation, Pagination } from "swiper/modules";
+	
+		import "swiper/css";
+		import "swiper/css/navigation";
+		import "swiper/css/pagination";
+	
+		new Swiper(".swiper", {
+			modules: [Navigation, Pagination],
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+			loop: true,
+	
+			autoplay: {
+				delay: 6000,
+				disableOnInteraction: true,
+				pauseOnMouseEnter: true,
+			},
+	
+			speed: 400,
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+			keyboard: {
+				enabled: true,
+			},
+		});
+	</script>
 </MainLayout>

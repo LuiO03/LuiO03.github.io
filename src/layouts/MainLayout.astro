@@ -13,6 +13,7 @@ interface Props {
 const { title, bannerImage } = Astro.props;
 
 import "../styles/layouts/global.css";
+
 import "../styles/ui/buttons.css";
 import "../styles/ui/backgrounds.css";
 ---
@@ -24,7 +25,23 @@ import "../styles/ui/backgrounds.css";
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<script is:inline>
+			(function () {
+				const theme = localStorage.getItem("theme");
+				const dark = theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+				document.documentElement.classList.toggle("dark", dark);
+			})();
+		</script>
 		<title>{title}</title>
+		<!-- Lato + Poppins + Montserrat -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&family=Montserrat:wght@100;300;400;500;600;700;900&display=swap"
+			rel="stylesheet"
+		/>
 		<!-- Habilita el enrutamiento del lado del cliente para transiciones suaves -->
 		<ClientRouter />
 		<!-- Script para manejar el cambio de tema -->

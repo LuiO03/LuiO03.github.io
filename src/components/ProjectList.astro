@@ -9,36 +9,27 @@ const { limit } = Astro.props;
 
 const projects = await getCollection("projects");
 
-const visibleProjects = limit
-	? projects.slice(0, limit)
-	: projects;
+const visibleProjects = limit ? projects.slice(0, limit) : projects;
 ---
 
 <ul class="project-list">
 	{
 		visibleProjects.map((project) => (
 			<li class="project-item">
+				<a href={`/projects/${project.id}`} transition:name={`${project.id}-title`} class="project-title">
+					{project.data.title}
+				</a>
 				<div class="project-image">
-					<img
-						src={project.data.image}
-						alt={project.data.title}
-						transition:name={project.id}
-					/>
+					<img src={project.data.image} alt={project.data.title} transition:name={project.id} />
 
-					<div class="project-tags">
-						{
-							project.data.tags?.map((tag) => (
-								<span class={`project-tag ${tag.toLowerCase()}`}>
-									{tag}
-								</span>
-							))
-						}
+					<div class="project-info">
+						{project.data.tags?.map((tag) => (
+							<span class={`project-tag ${tag.toLowerCase()}`}>{tag}</span>
+						))}
 					</div>
 				</div>
 
-				<a href={`/projects/${project.id}`}>
-					{project.data.title}
-				</a>
+				
 			</li>
 		))
 	}
