@@ -4,6 +4,10 @@ import { getCollection } from "astro:content";
 import Banner from "../../components/Banner.astro";
 import Section from "../../components/Section.astro";
 import { Icon } from "astro-icon/components";
+import { marked } from "marked";
+
+import "../../styles/name-proyecto.css";
+
 export async function getStaticPaths() {
 	const projects = await getCollection("projects");
 
@@ -18,17 +22,21 @@ export async function getStaticPaths() {
 	}));
 }
 
-
-
 const { project, name } = Astro.props;
 
-const images = project.data.gallery ?? [];
+const allImages = import.meta.glob("/src/assets/projects/*/*.{jpg,jpeg,png,webp}", {
+	eager: true,
+	query: "?url",
+	import: "default",
+}) as Record<string, string>;
 
-import { marked } from "marked";
+const galleryImages = Object.entries(allImages)
+	.filter(([path]) => path.includes(`/projects/${project.id}/`))
+	.map(([, image]) => image);
+
+const projectImage = galleryImages[0];
 
 const html = marked(project.data.content ?? "");
-
-import "../../styles/name-proyecto.css";
 ---
 
 <MainLayout title={project.data.title}>
@@ -53,69 +61,109 @@ import "../../styles/name-proyecto.css";
 	</Fragment>
 	<Section title="" description="" is_background_alt={true}>
 		<div class="project-section-content">
-			<div class="project-section-info">
-				<h1>Descripción General</h1>
+			<div class="project-column-block">
+				<h2>Descripción General</h2>
 				<p>{project.data.description}</p>
 			</div>
-			<img src={project.data.image} alt={project.data.title} transition:name={name} />
+			<img class="project-section-content-img" src={projectImage} alt={project.data.title} transition:name={name} />
 		</div>
 	</Section>
 	<Section title="" description="">
-		<div class="project-content" set:html={html}></div>
-	</Section>
-	<Section title="Galería" description="Aquí puedes ver algunas capturas de pantalla del proyecto." is_background_alt={true}>
-		<div class="swiper">
-			<div class="swiper-wrapper">
-				{
-					images.map((image) => (
-						<div class="swiper-slide">
-							<img src={image} alt={`Captura de ${project.data.title}`} />
-						</div>
-					))
-				}
+		<div class="project-section-content">
+			<div class="project-content" set:html={html} />
+			<div class="project-column-block">
+				<div class="project-section-info">
+					<h2>Galería</h2>
+					<p>Aquí puedes ver algunas capturas de pantalla del proyecto.</p>
+				</div>
+				<div class="swiper project-gallery-main">
+					<div class="swiper-wrapper">
+						{
+							galleryImages.map((image) => (
+								<div class="swiper-slide">
+									<img src={image} alt={`Captura de ${project.data.title}`} />
+								</div>
+							))
+						}
+					</div>
+
+					<div class="swiper-pagination"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<div class="swiper project-gallery-thumbs">
+					<div class="swiper-wrapper">
+						{
+							galleryImages.map((image) => (
+								<div class="swiper-slide">
+									<img src={image} alt={`Miniatura de ${project.data.title}`} loading="lazy" />
+								</div>
+							))
+						}
+					</div>
+				</div>
 			</div>
-	
-			<div class="swiper-pagination"></div>
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
 		</div>
 	</Section>
-	
+
 	<a href="/projects" class="button bg-warning">
 		<Icon name="tabler:arrow-left" class="button-icon" />
 		Volver a Proyectos
 	</a>
-	
+
 	<script>
 		import Swiper from "swiper";
-		import { Navigation, Pagination } from "swiper/modules";
-	
-		import "swiper/css";
-		import "swiper/css/navigation";
-		import "swiper/css/pagination";
-	
-		new Swiper(".swiper", {
-			modules: [Navigation, Pagination],
-			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
-			},
-			loop: true,
-	
-			autoplay: {
-				delay: 6000,
-				disableOnInteraction: true,
-				pauseOnMouseEnter: true,
-			},
-	
-			speed: 400,
-			pagination: {
-				el: ".swiper-pagination",
-				clickable: true,
-			},
-			keyboard: {
-				enabled: true,
-			},
-		});
+		import { Navigation, Pagination, Autoplay, Thumbs, FreeMode } from "swiper/modules";
+
+		interface SwiperHTMLElement extends HTMLElement {
+			swiper?: Swiper;
+		}
+
+		function initProjectGallery() {
+			const mainEl = document.querySelector<SwiperHTMLElement>(".project-gallery-main");
+
+			const thumbsEl = document.querySelector<SwiperHTMLElement>(".project-gallery-thumbs");
+
+			if (!mainEl || !thumbsEl) return;
+
+			if (mainEl.swiper) {
+				mainEl.swiper.destroy(true, true);
+			}
+
+			if (thumbsEl.swiper) {
+				thumbsEl.swiper.destroy(true, true);
+			}
+
+			const thumbs = new Swiper(thumbsEl, {
+				modules: [FreeMode],
+				slidesPerView: 4,
+				spaceBetween: 10,
+				freeMode: true,
+				watchSlidesProgress: true,
+			});
+
+			new Swiper(mainEl, {
+				modules: [Navigation, Pagination, Autoplay, Thumbs],
+				loop: true,
+				autoplay: {
+					delay: 5000,
+				},
+				thumbs: {
+					swiper: thumbs,
+				},
+				navigation: {
+					nextEl: ".project-gallery-main .swiper-button-next",
+					prevEl: ".project-gallery-main .swiper-button-prev",
+				},
+				pagination: {
+					el: ".project-gallery-main .swiper-pagination",
+					clickable: true,
+				},
+			});
+		}
+
+		document.addEventListener("astro:page-load", initProjectGallery);
+
+		initProjectGallery();
 	</script>
 </MainLayout>

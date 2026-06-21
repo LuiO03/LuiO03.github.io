@@ -6,17 +6,106 @@
     border-radius: var(--radius-card);
 }
 
+.project-column-block {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.project-gallery-main {
+	width: 100%;
+	border-radius: var(--radius-card);
+	overflow: hidden;
+}
+
+.project-gallery-main .swiper-slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.project-gallery-main img {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	display: block;
+	border-radius: var(--radius-card);
+}
+
+.project-gallery-thumbs {
+	width: 100%;
+}
+
+.project-gallery-thumbs .swiper-slide {
+	height: 50px;
+	opacity: 0.5;
+	cursor: pointer;
+	transition: opacity 0.3s ease,
+		transform 0.3s ease;
+}
+
+.project-gallery-thumbs .swiper-slide-thumb-active {
+	opacity: 1;
+	transform: scale(1.05);
+}
+
+.project-gallery-thumbs img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: var(--radius-input);
+	display: block;
+}
+
+.project-gallery-main .swiper-button-prev,
+.project-gallery-main .swiper-button-next {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+    color: white;
+    padding: 10px;
+}
+
+.project-gallery-main .swiper-button-prev::after,
+.project-gallery-main .swiper-button-next::after {
+	font-size: 1rem;
+	font-weight: bold;
+	color: #fff;
+}
+
+.project-gallery-main .swiper-pagination-bullet {
+	width: 10px;
+	height: 10px;
+}
+
+.project-gallery-main .swiper-pagination-bullet-active {
+	background: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+	.project-gallery-main img {
+		height: 300px;
+	}
+
+	.project-gallery-thumbs .swiper-slide {
+		height: 70px;
+	}
+}
+
+
+
 .project-section-content{
-    display: flex;
-    align-items: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     width: 100%;
     gap: 1rem;
 }
 
-.project-section-info, .project-section-content img{
-    width: 50%;
-}
-.project-section-content img{
+.project-section-content .project-section-content-img{
     border-radius: var(--radius-card);
 }
 
