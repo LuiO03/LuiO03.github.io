@@ -9,18 +9,53 @@ import "../styles/home.css";
 
 <MainLayout title="Inicio">
 	<Fragment slot="header">
-		<Banner bannerImage="/images/banner-home.jpg">
-			<div class="banner-content">
-				<h1>Bienvenido a mi portafolio</h1>
-				<p>Explora mis proyectos y conoce más sobre mí.</p>
-				<div class="banner-buttons">
-					<a href="#projects" class="button bg-accent">
-						<Icon name="tabler:eye-filled" class="button-icon" />
-						Ver Proyectos
-					</a>
+		<section class="hero">
+			<video class="hero-video" autoplay muted loop playsinline>
+				<source src="videos/fondo.mp4" type="video/mp4" />
+				Tu navegador no soporta videos HTML5.
+			</video>
+
+			<div class="hero-overlay"></div>
+
+			<div class="hero-content container">
+				<div class="hero-info">
+					<h1>Luis Quispe Osorio</h1>
+
+					<h2>Web Designer & Developer</h2>
+
+					<p>Desarrollador web enfocado en crear aplicaciones modernas, funcionales y escalables utilizando tecnologías frontend y backend.</p>
+
+					<div class="hero-socials">
+						<a href="https://github.com/LuiO03" target="_blank" aria-label="GitHub">
+							<Icon name="tabler:brand-github-filled" />
+						</a>
+
+						<a href="#" target="_blank" aria-label="LinkedIn">
+							<Icon name="tabler:brand-linkedin-filled" />
+						</a>
+
+						<a href="#" target="_blank" aria-label="Facebook">
+							<Icon name="tabler:brand-facebook-filled" />
+						</a>
+
+						<a href="https://wa.me/922616232" target="_blank" aria-label="WhatsApp">
+							<Icon name="tabler:brand-whatsapp-filled" />
+						</a>
+					</div>
+
+					<div class="hero-buttons">
+						<a href="/projects" class="button bg-accent">
+							<Icon name="tabler:rocket" class="button-icon" />
+							Ver Portafolio
+						</a>
+					</div>
+				</div>
+
+				<div class="hero-image">
+					<img src="/images/foto.png" alt="Luis Quispe Osorio" />
 				</div>
 			</div>
-		</Banner>
+		</section>
 	</Fragment>
 
 	<Section title="Sobre mí" description="Soy un desarrollador apasionado por la tecnología y el desarrollo de software.">
@@ -38,6 +73,32 @@ import "../styles/home.css";
 		</p>
 	</Section>
 
+	<Section
+		title="Especialidades"
+		description="Me especializo en el desarrollo de aplicaciones web modernas utilizando tecnologías como React, Node.js y bases de datos SQL y NoSQL."
+		is_background_alt={true}
+	>
+		<div class="specialties">
+			<div class="specialty">
+				<Icon name="tabler:code" class="specialty-icon" />
+				<h3>Desarrollo Frontend</h3>
+				<p>Creación de interfaces de usuario atractivas y funcionales utilizando React, Astro y Tailwind CSS.</p>
+			</div>
+
+			<div class="specialty">
+				<Icon name="tabler:server" class="specialty-icon" />
+				<h3>Desarrollo Backend</h3>
+				<p>Implementación de APIs RESTful y GraphQL con Node.js, Express y bases de datos como MongoDB y PostgreSQL.</p>
+			</div>
+
+			<div class="specialty">
+				<Icon name="tabler:cloud" class="specialty-icon" />
+				<h3>Despliegue en la Nube</h3>
+				<p>Experiencia en despliegue de aplicaciones en plataformas como Vercel, Netlify y AWS.</p>
+			</div>
+		</div>
+	</Section>
+
 	<Section title="Mis Proyectos" description="Aquí puedes encontrar algunos de los proyectos en los que he trabajado recientemente.">
 		<ProjectList limit={3} />
 		<a href="/projects" class="button bg-accent">
@@ -45,4 +106,237 @@ import "../styles/home.css";
 			Ver todos los proyectos
 		</a>
 	</Section>
+
+	<Section title="Tecnologías" description="Tecnologías y herramientas que utilizo." is_background_alt={true}>
+		<div class="tech-group">
+			<h3>Frontend</h3>
+
+			<div class="swiper tech-swiper tech-swiper-front">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<Icon name="tabler:html" />
+						<span>HTML5</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:brand-css3" />
+						<span>CSS3</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:brand-javascript" />
+						<span>JavaScript</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:brand-typescript" />
+						<span>TypeScript</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:brand-astro" />
+						<span>Astro</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:brand-bootstrap" />
+						<span>Bootstrap</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:exchange" />
+						<span>HTMX</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:arrows-shuffle" />
+						<span>AJAX</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:device-mobile" />
+						<span>Responsive Design</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:apps" />
+						<span>Flutter</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tech-group">
+			<h3>Backend</h3>
+
+			<div class="swiper tech-swiper tech-swiper-back">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<Icon name="tabler:brand-php" />
+						<span>PHP</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:brand-laravel" />
+						<span>Laravel</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:layout-dashboard" />
+						<span>MVC</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:api" />
+						<span>REST API</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:arrows-shuffle" />
+						<span>AJAX</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:exchange" />
+						<span>HTMX</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:shield-lock" />
+						<span>CSRF</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:packages" />
+						<span>Composer</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:file-code" />
+						<span>OOP</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:database-cog" />
+						<span>CRUD</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tech-group">
+			<h3>Base de Datos</h3>
+
+			<div class="swiper tech-swiper tech-swiper-db">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<Icon name="tabler:database" />
+						<span>MySQL</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:flame" />
+						<span>Firebase</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:table" />
+						<span>SQL</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:relation-many-to-many" />
+						<span>Modelado Relacional</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:database-export" />
+						<span>Consultas SQL</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:database-cog" />
+						<span>Procedimientos CRUD</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tech-group">
+			<h3>Diseño y Edición</h3>
+
+			<div class="swiper tech-swiper tech-swiper-design">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<Icon name="tabler:vector" />
+						<span>Figma</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:photo" />
+						<span>Photoshop</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:brush" />
+						<span>Illustrator</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:palette" />
+						<span>UI Design</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:device-desktop" />
+						<span>Wireframing</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:components" />
+						<span>Prototipado</span>
+					</div>
+
+					<div class="swiper-slide">
+						<Icon name="tabler:layout-dashboard" />
+						<span>Diseño Responsive</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</Section>
+	<script>
+		import Swiper from "swiper";
+		import { Autoplay, FreeMode } from "swiper/modules";
+
+		interface SwiperHTMLElement extends HTMLElement {
+			swiper?: Swiper;
+		}
+
+		function initTechSwiper() {
+			document.querySelectorAll<SwiperHTMLElement>(".tech-swiper").forEach((el, index) => {
+				if (el.swiper) {
+					el.swiper.destroy(true, true);
+				}
+				new Swiper(el, {
+					freeMode: true,
+					modules: [Autoplay],
+					slidesPerView: "auto",
+					spaceBetween: 16,
+					loopAdditionalSlides: 20,
+					loop: true,
+					speed: 5000,
+					allowTouchMove: false,
+					autoplay: {
+						delay: 0,
+						reverseDirection: false,
+						disableOnInteraction: false,
+					},
+				});
+			});
+		}
+
+		document.addEventListener("astro:page-load", initTechSwiper);
+
+		initTechSwiper();
+	</script>
 </MainLayout>
