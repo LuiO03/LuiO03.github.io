@@ -31,21 +31,20 @@ function getProjectImage(projectId: string) {
 
 			return (
 				<li class="project-item">
-					<a href={`/projects/${project.id}`} transition:name={`${project.id}-title`} class="project-title">
-						{project.data.title}
-					</a>
-
 					<div class="project-image">
 						<img src={projectImage} alt={project.data.title} transition:name={project.id} />
 
-						<div class="project-info">
+						<a href={`/projects/${project.id}`} class="project-info">
+							<span transition:name={`${project.id}-title`} class="project-title">
+								{project.data.title}
+							</span>
 							<div class="project-tags">
 								{project.data.tags?.map((tag) => (
 									<span class={`project-tag ${tag.toLowerCase()}`}>{tag}</span>
 								))}
 							</div>
 							<p class="project-description">{project.data.short_description}</p>
-						</div>
+						</a>
 					</div>
 				</li>
 			);

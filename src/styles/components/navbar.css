@@ -236,6 +236,10 @@
 		pointer-events: auto;
 	}
 
+	.nav-theme-toggle label{
+		display: none;
+	}
+
 	.nav-overlay {
 		display: block;
 		position: fixed;
