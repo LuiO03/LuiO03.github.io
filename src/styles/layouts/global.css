@@ -9,6 +9,8 @@
 	--color-navbar-bg: #ffffff;
 	--color-main-bg: #f0f4f8;
 	--color-main-bg-alt: #f8fafc;
+	--color-main-bg-rgb: 240, 244, 248;
+	--color-main-bg-alt-rgb: 248, 250, 252;
 	--color-card-bg: #fcfcfc;
 	--color-sub-menu-bg: #f8fafc;
 	--color-sub-menu-button-bg: #f9f9f9;
@@ -63,8 +65,10 @@
 	--color-bg: #111110;
 	--color-sidebar-bg: #181818;
 	--color-navbar-bg: #20252c;
-	--color-main-bg: #0e0e10;
+	--color-main-bg: #0e0e10; 
 	--color-main-bg-alt: #212121;
+	--color-main-bg-rgb: 14, 14, 16;
+	--color-main-bg-alt-rgb: 33, 33, 33;
 	--color-main-degraded-bg: linear-gradient(to bottom, #0e0e10 0%, #212121 50%, #0e0e10 100%);
 	--color-card-bg: #1a1a1a;
 	--color-sub-menu-bg: #111111;
@@ -80,7 +84,7 @@
 	--color-muted: #aaaaaa;
 
 	/* === Colores de acento y efectos === */
-	
+
 	--color-accent-pastel: #ffe5e5;
 	--shadow-accent: rgba(209, 30, 75, 0.3);
 	--color-hover: #212121;
@@ -283,7 +287,6 @@ hr.nav-divider {
 }
 @media (max-width: 720px) {
 }
-
 
 .project-navigation {
 	display: flex;

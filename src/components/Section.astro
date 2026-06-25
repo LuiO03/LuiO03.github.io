@@ -10,7 +10,7 @@ const { id, title, description, is_background_alt } = Astro.props;
 import "../styles/components/section.css";
 ---
 
-<section class="section" id={id} style={`background-color: ${is_background_alt ? 'var(--color-main-bg-alt)' : 'var(--color-main-bg)'};`}>
+<section class="section" id={id} style={`background-color: ${is_background_alt ? 'rgba(var(--color-main-bg-alt-rgb), 0.8)' : 'rgba(var(--color-main-bg-rgb), 0.8)'};`}>
 	<div class="section-container">
 		<div class="section-header">
 			<h2>{title}</h2>

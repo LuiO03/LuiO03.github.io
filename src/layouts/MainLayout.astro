@@ -13,6 +13,7 @@ interface Props {
 const { title, bannerImage } = Astro.props;
 
 import "../styles/layouts/global.css";
+import "../styles/ui/fondo-main.css";
 import "../styles/ui/buttons.css";
 import "../styles/ui/backgrounds.css";
 
@@ -69,6 +70,9 @@ import FloatButtons from "../components/FloatButtons.astro";
 	<body>
 		<!--  Barra de navegación -->
 		<Navbar />
+		<div class="background" aria-hidden="true">
+			{Array.from({ length: 6 }).map(() => <div class="ball" />)}
+		</div>
 		<main>
 			<header>
 				<slot name="header" />
