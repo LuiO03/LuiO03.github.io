@@ -11,7 +11,6 @@ const projects = await getCollection("projects");
 ---
 
 <MainLayout title="Inicio">
-	
 	<Fragment slot="header">
 		<section class="hero">
 			<video class="hero-video" autoplay muted loop playsinline>
@@ -59,42 +58,58 @@ const projects = await getCollection("projects");
 	</Fragment>
 	<Section id="about" title="Sobre mí" description="Soy un desarrollador apasionado por la tecnología y el desarrollo de software.">
 		<p>
-			Soy un desarrollador apasionado por la tecnología y el desarrollo de web. Con experiencia en diversas tecnologías, me encanta crear soluciones innovadoras y eficientes. Mi
-			objetivo es seguir creciendo profesionalmente y contribuir a proyectos que marquen la diferencia.
+			Soy un <strong>desarrollador apasionado por la tecnología y el desarrollo web</strong>. Con experiencia en diversas tecnologías, me encanta <strong
+				>crear soluciones innovadoras, eficientes y orientadas a las necesidades del usuario</strong
+			>. Mi objetivo es <strong>seguir creciendo profesionalmente</strong> y contribuir a proyectos que <strong>generen un impacto real</strong>.
 		</p>
+
 		<p>
-			Desde pequeño, siempre he estado fascinado por cómo funcionan las cosas detrás de escena, lo que me llevó a aprender programación y desarrollo web. A lo largo de mi carrera,
-			he trabajado en una variedad de proyectos, desde aplicaciones web hasta sistemas más complejos, siempre buscando mejorar mis habilidades y aprender nuevas tecnologías.
+			Desde pequeño, siempre he estado fascinado por <strong>cómo funcionan las cosas detrás de escena</strong>, lo que me llevó a aprender <strong
+				>programación y desarrollo de software</strong
+			>. A lo largo de mi trayectoria, he trabajado en <strong>aplicaciones web, sistemas de gestión y soluciones empresariales</strong>, fortaleciendo mis conocimientos y
+			aprendiendo constantemente <strong>nuevas tecnologías y buenas prácticas</strong>.
 		</p>
+
 		<p>
-			Mi enfoque se centra en la calidad del código, la usabilidad y la experiencia del usuario. Me esfuerzo por crear productos que no solo funcionen bien, sino que también sean
-			intuitivos y agradables de usar. Estoy emocionado por las oportunidades futuras y los desafíos que vendrán en el mundo del desarrollo de software.
+			Mi enfoque se centra en la <strong>calidad del código</strong>, la <strong>arquitectura de software</strong>, la <strong>usabilidad</strong> y la <strong
+				>experiencia del usuario</strong
+			>. Me esfuerzo por desarrollar productos que sean <strong>mantenibles, escalables e intuitivos</strong>, combinando un diseño cuidado con un desarrollo sólido. Siempre estoy
+			dispuesto a <strong>afrontar nuevos desafíos</strong> y continuar evolucionando como desarrollador.
 		</p>
 	</Section>
 
 	<Section
 		id="specialties"
 		title="Especialidades"
-		description="Me especializo en el desarrollo de aplicaciones web modernas utilizando tecnologías como React, Node.js y bases de datos SQL y NoSQL."
+		description="Desarrollo soluciones web y de escritorio aplicando buenas prácticas de arquitectura, interfaces modernas y tecnologías enfocadas en la creación de aplicaciones escalables y mantenibles."
 		is_background_alt={true}
 	>
 		<div class="specialties">
 			<div class="specialty">
-				<Icon name="tabler:code" class="specialty-icon" />
+				<Icon name="tabler:browser" class="specialty-icon" />
 				<h3>Desarrollo Frontend</h3>
-				<p>Creación de interfaces de usuario atractivas y funcionales utilizando React, Astro y Tailwind CSS.</p>
+				<p>
+					Construcción de <strong>interfaces modernas, responsivas y accesibles</strong>
+					con Vue.js, Astro, HTML, CSS y JavaScript, priorizando la experiencia del usuario y el rendimiento.
+				</p>
 			</div>
 
 			<div class="specialty">
 				<Icon name="tabler:server" class="specialty-icon" />
 				<h3>Desarrollo Backend</h3>
-				<p>Implementación de APIs RESTful y GraphQL con Node.js, Express y bases de datos como MongoDB y PostgreSQL.</p>
+				<p>
+					Desarrollo de aplicaciones con
+					<strong>PHP, Laravel, Java y Spring Boot</strong>, implementando arquitecturas MVC, APIs REST, autenticación y acceso seguro a bases de datos MySQL.
+				</p>
 			</div>
 
 			<div class="specialty">
-				<Icon name="tabler:cloud" class="specialty-icon" />
-				<h3>Despliegue en la Nube</h3>
-				<p>Experiencia en despliegue de aplicaciones en plataformas como Vercel, Netlify y AWS.</p>
+				<Icon name="tabler:database" class="specialty-icon" />
+				<h3>Arquitectura y Bases de Datos</h3>
+				<p>
+					Diseño de <strong>modelos de datos relacionales</strong>, optimización de consultas SQL, estructuración de proyectos y aplicación de principios de código limpio y
+					separación de responsabilidades.
+				</p>
 			</div>
 		</div>
 	</Section>
@@ -155,47 +170,12 @@ const projects = await getCollection("projects");
 						<span>Tailwind CSS</span>
 					</div>
 					<div class="tech-item ajax">
-						<Icon class="tech-icon" name="simple-icons:xml" />
+						<Icon class="tech-icon" name="tabler:refresh" />
 						<span>AJAX</span>
 					</div>
 					<div class="tech-item flutter">
 						<Icon class="tech-icon" name="simple-icons:flutter" />
 						<span>Flutter</span>
-					</div>
-				</div>
-			</div>
-			<div class="tech-group">
-				<h3>CMS y Constructores Web</h3>
-				<div class="tech-items">
-					<div class="tech-item wordpress">
-						<Icon class="tech-icon" name="simple-icons:wordpress" />
-						<span>WordPress</span>
-					</div>
-					<div class="tech-item elementor">
-						<Icon class="tech-icon" name="simple-icons:elementor" />
-						<span>Elementor</span>
-					</div>
-				</div>
-			</div>
-
-			<div class="tech-group">
-				<h3>Hosting y Deploy</h3>
-				<div class="tech-items">
-					<div class="tech-item netlify">
-						<Icon class="tech-icon" name="simple-icons:netlify" />
-						<span>Netlify</span>
-					</div>
-					<div class="tech-item vercel">
-						<Icon class="tech-icon" name="simple-icons:vercel" />
-						<span>Vercel</span>
-					</div>
-					<div class="tech-item hostinger">
-						<Icon class="tech-icon" name="simple-icons:hostinger" />
-						<span>Hostinger</span>
-					</div>
-					<div class="tech-item digital-ocean">
-						<Icon class="tech-icon" name="simple-icons:digitalocean" />
-						<span>DigitalOcean</span>
 					</div>
 				</div>
 			</div>
@@ -238,6 +218,40 @@ const projects = await getCollection("projects");
 				</div>
 			</div>
 			<div class="tech-group">
+				<h3>Hosting y Deploy</h3>
+				<div class="tech-items">
+					<div class="tech-item netlify">
+						<Icon class="tech-icon" name="simple-icons:netlify" />
+						<span>Netlify</span>
+					</div>
+					<div class="tech-item vercel">
+						<Icon class="tech-icon" name="simple-icons:vercel" />
+						<span>Vercel</span>
+					</div>
+					<div class="tech-item hostinger">
+						<Icon class="tech-icon" name="simple-icons:hostinger" />
+						<span>Hostinger</span>
+					</div>
+					<div class="tech-item digital-ocean">
+						<Icon class="tech-icon" name="simple-icons:digitalocean" />
+						<span>DigitalOcean</span>
+					</div>
+				</div>
+			</div>
+			<div class="tech-group">
+				<h3>CMS y Constructores Web</h3>
+				<div class="tech-items">
+					<div class="tech-item wordpress">
+						<Icon class="tech-icon" name="simple-icons:wordpress" />
+						<span>WordPress</span>
+					</div>
+					<div class="tech-item elementor">
+						<Icon class="tech-icon" name="simple-icons:elementor" />
+						<span>Elementor</span>
+					</div>
+				</div>
+			</div>
+			<div class="tech-group">
 				<h3>Herramientas y Control de Versiones</h3>
 				<div class="tech-items">
 					<div class="tech-item git">
@@ -264,6 +278,14 @@ const projects = await getCollection("projects");
 						<Icon class="tech-icon" name="simple-icons:xampp" />
 						<span>XAMPP</span>
 					</div>
+					<div class="tech-item notion">
+						<Icon class="tech-icon" name="simple-icons:notion" />
+						<span>Notion</span>
+					</div>
+					<div class="tech-item asana">
+						<Icon class="tech-icon" name="simple-icons:asana" />
+						<span>Asana</span>
+					</div>
 				</div>
 			</div>
 			<div class="tech-group">
@@ -281,10 +303,12 @@ const projects = await getCollection("projects");
 						<Icon class="tech-icon" name="simple-icons:adobeillustrator" />
 						<span>Illustrator</span>
 					</div>
+					<!--
 					<div class="tech-item premiere">
 						<Icon class="tech-icon" name="simple-icons:adobepremierepro" />
 						<span>Premiere Pro</span>
 					</div>
+					-->
 					<div class="tech-item canva">
 						<Icon class="tech-icon" name="simple-icons:canva" />
 						<span>Canva</span>

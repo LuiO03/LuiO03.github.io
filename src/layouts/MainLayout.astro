@@ -69,10 +69,10 @@ import FloatButtons from "../components/FloatButtons.astro";
 	</head>
 	<body>
 		<!--  Barra de navegación -->
-		<Navbar />
 		<div class="background" aria-hidden="true">
 			{Array.from({ length: 6 }).map(() => <div class="ball" />)}
 		</div>
+		<Navbar />
 		<main>
 			<header>
 				<slot name="header" />

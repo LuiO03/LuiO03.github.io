@@ -8,9 +8,9 @@ const currentPath = Astro.url.pathname;
 	<!-- div para implementar ancho maximo -->
 	<div class="nav-header">
 		<a class="logo" href="/">LuiOsorio</a>
-		<img src="/images/foto.png" alt="Logo" />
 	</div>
 	<ul class="nav-links">
+		<img src="/images/foto.png" alt="Logo" />
 		<li>
 			<a href="/" class={currentPath === "/" ? "active" : "disabled"}>
 				<Icon class="nav-icon" name="tabler:home" />
@@ -56,7 +56,7 @@ const currentPath = Astro.url.pathname;
 	<hr class="nav-divider" />
 	<article class="nav-actions">
 		<div class="nav-theme-toggle" aria-label="Cambiar tema" id="theme-toggle">
-			<Icon class="nav-icon-theme" name="tabler:moon" />
+			<Icon class="nav-icon-theme" name="tabler:moon-filled" />
 			<label for="theme-toggle">Cambiar tema</label>
 		</div>
 		<div class="nav-theme-toggle">

@@ -1,6 +1,7 @@
 .section {
     width: 100%;
     padding: 2rem 1rem;
+    
 }
 
 .section-container {
@@ -42,12 +43,13 @@
     width: 100%;
     overflow: hidden;
     border-radius: var(--radius-card);
-    border-bottom: 3px solid transparent;
+    border-top: 3px solid transparent;
     background: var(--color-card-bg);
     box-shadow: var(--box-shadow-card);
     transition:
         transform .25s ease,
         border-width .25s ease,
+        border-color .25s ease,
         box-shadow .25s ease;
 }
 
